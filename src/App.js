@@ -1,8 +1,40 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
+  const [theme, setTheme] = useState(() => {
+    // Check localStorage first, then default to 'dark'
+    const savedTheme = localStorage.getItem('hortus-theme');
+    return savedTheme || 'dark';
+  });
+
+  // Apply theme to document
+  useEffect(() => {
+    const applyTheme = (currentTheme) => {
+      if (currentTheme === 'system') {
+        const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', systemTheme);
+      } else {
+        document.documentElement.setAttribute('data-theme', currentTheme);
+      }
+    };
+
+    applyTheme(theme);
+    localStorage.setItem('hortus-theme', theme);
+
+    // Listen for system theme changes when in system mode
+    if (theme === 'system') {
+      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      const handleChange = () => applyTheme('system');
+      mediaQuery.addEventListener('change', handleChange);
+      return () => mediaQuery.removeEventListener('change', handleChange);
+    }
+  }, [theme]);
+
+  const handleThemeChange = (newTheme) => {
+    setTheme(newTheme);
+  };
 
   const renderPage = () => {
     switch(currentPage) {
@@ -10,10 +42,6 @@ function App() {
         return <NewsPage />;
       case 'whitepaper':
         return <WhitepaperPage />;
-      case 'blog':
-        return <BlogPage />;
-      case 'open-roles':
-        return <OpenRolesPage />;
       case 'platform':
         return <PlatformPage />;
       default:
@@ -43,22 +71,7 @@ function App() {
           </div>
           <div className="ultra-hero-visual">
             <div className="ultra-hero-image">
-              <div className="hero-figure">
-                <div className="figure-silhouette">
-                  <div className="silhouette-head"></div>
-                  <div className="silhouette-body"></div>
-                </div>
-                <div className="figure-device">
-                  <div className="device-frame">
-                    <div className="device-screen">
-                      <div className="screen-line"></div>
-                      <div className="screen-line short"></div>
-                      <div className="screen-line medium"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <p className="image-note">Image will replace this illustration</p>
+              <img src="/Hortus-H.png" alt="Hortus Logo" className="hero-logo-image" />
             </div>
           </div>
         </div>
@@ -111,72 +124,26 @@ function App() {
               <strong>safe and ethical AI</strong><br/>
               adoption
             </h2>
-            <button className="get-started-btn">Get Started →</button>
+            <button onClick={() => setCurrentPage('platform')} className="get-started-btn">Get Started →</button>
           </div>
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="services">
-        <div className="services-container">
-          <div className="service-item">
-            <div className="service-icon">📋</div>
-            <h3>AI Registry</h3>
-            <p>Confidently select trustworthy AI solutions using our curated directory of AI tools and models designed to provide users with transparent and reliable information.</p>
+      {/* Demo Video Section */}
+      <section className="demo-video-section">
+        <div className="demo-container">
+          <div className="demo-content">
+            <h2>See Hortus in Action</h2>
+            <p>Watch how we're making AI evaluation transparent and accessible for everyone.</p>
           </div>
-          <div className="service-item">
-            <div className="service-icon">📄</div>
-            <h3>Standard FactSheets</h3>
-            <p>Browse living documents that provide detailed information about AI tools, including their capabilities, limitations, and ethical considerations.</p>
-          </div>
-          <div className="service-item">
-            <div className="service-icon">🔍</div>
-            <h3>Quality Control</h3>
-            <p>Access detailed performance benchmarks to make informed decisions about AI partnerships and implementations.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Form */}
-      <section className="contact">
-        <div className="contact-container">
-          <h2 className="contact-title">Want to see if Hortus can help you?</h2>
-          <p className="contact-subtitle">Fill out the form below and we'll get in touch.</p>
-          
-          <form className="contact-form">
-            <div className="form-row">
-              <div className="form-group">
-                <label>Name *</label>
-                <input type="text" placeholder="First" required />
+          <div className="video-placeholder">
+            <div className="video-frame">
+              <div className="play-button">
+                <span className="play-icon">▶</span>
               </div>
-              <div className="form-group">
-                <label style={{opacity: 0, pointerEvents: 'none'}}>Last *</label>
-                <input type="text" placeholder="Last" required />
-              </div>
+              <p className="video-note">Demo video will be embedded here</p>
             </div>
-            
-            <div className="form-group">
-              <label>Email *</label>
-              <input type="email" required />
-            </div>
-            
-            <div className="form-group">
-              <label>Company/Organization Affiliation</label>
-              <input type="text" />
-            </div>
-            
-            <div className="form-group">
-              <label>How did you hear about Hortus? *</label>
-              <input type="text" required />
-            </div>
-            
-            <div className="form-group">
-              <label>Additional comments or message:</label>
-              <textarea rows="4"></textarea>
-            </div>
-            
-            <button type="submit" className="submit-btn">Submit</button>
-          </form>
+          </div>
         </div>
       </section>
     </>
@@ -344,109 +311,7 @@ function App() {
     </>
   );
 
-  const BlogPage = () => (
-    <>
-      {/* Blog Hero Section */}
-      <section className="blog-hero">
-        <div className="blog-hero-container">
-          <div className="blog-hero-content">
-            <h1 className="blog-title">Blog</h1>
-            <p className="blog-description">
-              Insights on AI governance, public empowerment, and building technology that serves society
-            </p>
-          </div>
-        </div>
-      </section>
 
-      {/* Blog Main Content */}
-      <section className="blog-main">
-        <div className="blog-main-container">
-          <div className="blog-featured-card">
-            <div className="featured-icon">📖</div>
-            <h2>Read Our Latest Insights</h2>
-            <p>
-              We publish in-depth articles about AI alignment, public policy, and our PRAISE framework 
-              for responsible AI development. Join our community of researchers, policymakers, and advocates.
-            </p>
-            <a href="https://hortusai.substack.com/" target="_blank" rel="noopener noreferrer" className="featured-button">
-              <span className="button-icon">✉️</span>
-              Visit Our Substack
-            </a>
-          </div>
-          
-          <div className="blog-info-grid">
-            <div className="info-card">
-              <h3>Research</h3>
-              <p>Deep dives into AI alignment and public empowerment</p>
-            </div>
-            <div className="info-card">
-              <h3>Policy</h3>
-              <p>Analysis of AI governance and regulatory frameworks</p>
-            </div>
-            <div className="info-card">
-              <h3>Community</h3>
-              <p>Building bridges between AI and society</p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </>
-  );
-
-  const OpenRolesPage = () => (
-    <>
-      {/* Open Roles Hero */}
-      <section className="simple-hero">
-        <div className="simple-hero-container">
-          <h1 className="simple-hero-title">Open roles</h1>
-          <p className="simple-hero-subtitle">
-            Join our mission to build AI tools that empower ordinary people
-          </p>
-        </div>
-      </section>
-
-      {/* Roles Content */}
-      <section className="roles-content">
-        <div className="roles-container">
-          <div className="role-card">
-            <div className="role-header">
-              <h2>Software Engineer</h2>
-              <p className="role-type">Fall 2025 Internship</p>
-            </div>
-            <div className="role-description">
-              <p>Support backend development of our AI marketplace as we prepare for public launch. Work on data infrastructure and application hosting.</p>
-              <div className="role-details">
-                <span className="detail-item">Oakland, CA</span>
-                <span className="detail-item">Up to 30 hrs/week</span>
-                <span className="detail-item">Python, Django, PostgreSQL</span>
-              </div>
-            </div>
-            <a href="https://hortus.ai/wp-content/uploads/2025/07/Fall-2025-internship_SE.pdf" target="_blank" rel="noopener noreferrer" className="role-button">
-              View Details & Apply
-            </a>
-          </div>
-
-          <div className="role-card">
-            <div className="role-header">
-              <h2>UI / UX Developer</h2>
-              <p className="role-type">Fall 2025 Internship</p>
-            </div>
-            <div className="role-description">
-              <p>Support frontend development of our marketplace. Construct user journeys and design iterations following our closed beta.</p>
-              <div className="role-details">
-                <span className="detail-item">Oakland, CA</span>
-                <span className="detail-item">Up to 30 hrs/week</span>
-                <span className="detail-item">React, Frontend</span>
-              </div>
-            </div>
-            <a href="https://hortus.ai/wp-content/uploads/2025/07/Fall-2025-internship_UI_UX.pdf" target="_blank" rel="noopener noreferrer" className="role-button">
-              View Details & Apply
-            </a>
-          </div>
-        </div>
-      </section>
-    </>
-  );
 
   const PlatformPage = () => (
     <>
@@ -525,16 +390,51 @@ function App() {
       <nav className="navbar">
         <div className="nav-container">
           <div className="nav-logo" onClick={() => setCurrentPage('home')}>
-            <span className="logo-icon">🌿</span>
+            <img src="/favicon.ico" alt="Hortus" className="company-logo" />
             <span className="logo-text">Hortus</span>
           </div>
-          <div className="nav-links">
-            <button onClick={() => setCurrentPage('home')} className={`nav-button ${currentPage === 'home' ? 'active' : ''}`}>Home</button>
-            <button onClick={() => setCurrentPage('news')} className={`nav-button ${currentPage === 'news' ? 'active' : ''}`}>News</button>
-            <button onClick={() => setCurrentPage('whitepaper')} className={`nav-button ${currentPage === 'whitepaper' ? 'active' : ''}`}>Whitepaper</button>
-            <button onClick={() => setCurrentPage('blog')} className={`nav-button ${currentPage === 'blog' ? 'active' : ''}`}>Blog</button>
-            <button onClick={() => setCurrentPage('open-roles')} className={`nav-button ${currentPage === 'open-roles' ? 'active' : ''}`}>Open roles</button>
-            <button onClick={() => setCurrentPage('platform')} className={`nav-button ${currentPage === 'platform' ? 'active' : ''}`}>Our Platform</button>
+          <div className="nav-right">
+            <div className="nav-links">
+              <button onClick={() => setCurrentPage('home')} className={`nav-button ${currentPage === 'home' ? 'active' : ''}`}>Home</button>
+              <button onClick={() => setCurrentPage('news')} className={`nav-button ${currentPage === 'news' ? 'active' : ''}`}>News</button>
+              <button onClick={() => setCurrentPage('whitepaper')} className={`nav-button ${currentPage === 'whitepaper' ? 'active' : ''}`}>Whitepaper</button>
+              <button onClick={() => setCurrentPage('platform')} className={`nav-button ${currentPage === 'platform' ? 'active' : ''}`}>Platform</button>
+            </div>
+            
+            {/* Theme Switcher */}
+            <div className="theme-switcher">
+              <div className="theme-dropdown">
+                <button className="theme-toggle">
+                  <span className="theme-icon">
+                    {theme === 'light' ? '☀️' : theme === 'dark' ? '🌙' : '⚙️'}
+                  </span>
+                  <span className="theme-arrow">▼</span>
+                </button>
+                <div className="theme-options">
+                  <button 
+                    onClick={() => handleThemeChange('light')} 
+                    className={`theme-option ${theme === 'light' ? 'active' : ''}`}
+                  >
+                    <span className="option-icon">☀️</span>
+                    Light
+                  </button>
+                  <button 
+                    onClick={() => handleThemeChange('dark')} 
+                    className={`theme-option ${theme === 'dark' ? 'active' : ''}`}
+                  >
+                    <span className="option-icon">🌙</span>
+                    Dark
+                  </button>
+                  <button 
+                    onClick={() => handleThemeChange('system')} 
+                    className={`theme-option ${theme === 'system' ? 'active' : ''}`}
+                  >
+                    <span className="option-icon">⚙️</span>
+                    System
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </nav>
@@ -549,7 +449,7 @@ function App() {
             <span className="footer-title">Hortus AI</span>
           </div>
           <p className="footer-tagline">Integrating AI, by and for the people.</p>
-          <a href="#projects" className="footer-link">Our Projects</a>
+          <button onClick={() => setCurrentPage('platform')} className="footer-link">Our Projects</button>
         </div>
       </footer>
     </div>
