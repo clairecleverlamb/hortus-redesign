@@ -58,7 +58,7 @@ function App() {
                   </div>
                 </div>
               </div>
-              <p className="image-note">Yimage will replace this illustration</p>
+              <p className="image-note">Image will replace this illustration</p>
             </div>
           </div>
         </div>
