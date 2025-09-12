@@ -71,7 +71,14 @@ function App() {
           </div>
           <div className="ultra-hero-visual">
             <div className="ultra-hero-image">
-              <img src="/Hortus-H.png" alt="Hortus Logo" className="hero-logo-image" />
+              <video 
+                src="/H.mp4" 
+                className="hero-logo-video" 
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+              />
             </div>
           </div>
         </div>
