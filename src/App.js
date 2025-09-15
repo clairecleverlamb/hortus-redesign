@@ -57,11 +57,11 @@ function App() {
           <div className="ultra-hero-content">
             <div className="hero-text-container">
               <h1 className="hero-main-title">
-                Evaluate AI tools,<br />
-                <span className="hero-accent-text">increase understanding.</span>
+                The Consumer Reports<br />
+                <span className="hero-accent-text">for AI.</span>
               </h1>
               <p className="hero-description">
-                Our evaluations are based on transparency, rigor, and public benefit.
+                We help organizations make informed decisions about chatbots, agents, ML tools, and everything in between.
               </p>
             </div>
             <div className="ultra-hero-buttons">
@@ -91,7 +91,7 @@ function App() {
         <div className="features-container">
           <div className="features-header">
             <h2>Why choose Hortus?</h2>
-            <p>We make AI evaluation transparent, rigorous, and focused on public benefit</p>
+            <p>Our evaluations are based on transparency, rigor, and public benefit.</p>
           </div>
           <div className="features-grid">
             <div className="feature-card">
@@ -334,16 +334,6 @@ function App() {
         </div>
       </section>
 
-      {/* Platform CTA */}
-      <section className="platform-cta">
-        <div className="platform-cta-container">
-          <h2>Want to know more?</h2>
-          <p>Learn more about our background and mission</p>
-          <button onClick={() => setCurrentPage('whitepaper')} className="cta-link-button">
-            Read Our Whitepaper
-          </button>
-        </div>
-      </section>
     </>
   );
 
