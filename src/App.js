@@ -315,7 +315,7 @@ function App() {
             <div className="detail-card">
               <h3>Our Solution</h3>
               <p>
-                Hortus Trails is an independent, rigorous platform evaluating AI products for usability, safety, privacy, and performance. Think Consumer Reports, but for AI—built on ethical audits and real user feedback. Trails includes:
+                Hortus Trellis is an independent, rigorous platform evaluating AI products for usability, safety, privacy, and performance. Think Consumer Reports, but for AI—built on ethical audits and real user feedback. Trellis includes:
               </p>
               <ul className="solution-features">
                 <li>500+ AI tools</li>
@@ -327,7 +327,7 @@ function App() {
             <div className="detail-card">
               <h3>What's Unprecedented</h3>
               <p>
-                Trails is the first public interest assessment dashboard designed to cut through the jungle of AI platforms and providers. It has been built directly with Chief Data and Privacy Officers across the country who serve as advisors and beta testers.
+                Trellis is the first public interest assessment dashboard designed to cut through the jungle of AI platforms and providers. It has been built directly with Chief Data and Privacy Officers across the country who serve as advisors and beta testers.
               </p>
             </div>
           </div>
