@@ -55,13 +55,15 @@ function App() {
       <section className="ultra-hero">
         <div className="ultra-hero-container">
           <div className="ultra-hero-content">
-            <h1 className="ultra-hero-title">
-              Evaluate AI tools,<br />
-              <span className="ultra-highlight">increase understanding.</span>
-            </h1>
-            <p className="ultra-hero-subtitle">
-              The Consumer Reports for AI. We help organizations make informed decisions about AI tools.
-            </p>
+            <div className="hero-text-container">
+              <h1 className="hero-main-title">
+                Evaluate AI tools,<br />
+                <span className="hero-accent-text">increase understanding.</span>
+              </h1>
+              <p className="hero-description">
+                Our evaluations are based on transparency, rigor, and public benefit.
+              </p>
+            </div>
             <div className="ultra-hero-buttons">
               <button onClick={() => setCurrentPage('platform')} className="ultra-demo-btn">
                 <span className="play-icon">▶</span>
@@ -97,44 +99,17 @@ function App() {
               <p>AI systems designed with public input and oversight, not just corporate profits</p>
             </div>
             <div className="feature-card">
-              <h3>Rigorous Testing</h3>
+              <h3>Best In Class Testing</h3>
               <p>500+ AI tools evaluated across 300+ use cases with comprehensive metrics</p>
             </div>
             <div className="feature-card">
-              <h3>Transparent Process</h3>
+              <h3>Impartial Process</h3>
               <p>Open methodologies and clear documentation you can trust and verify</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Marketplace Section */}
-      <section className="marketplace">
-        <div className="marketplace-container">
-          <div className="marketplace-left">
-            <div className="marketplace-illustration">
-              <div className="illustration-card">
-                <div className="card-icons">
-                  <span className="shield-icon">🛡️</span>
-                  <span className="brain-icon">🧠</span>
-                  <span className="building-icon">🏛️</span>
-                </div>
-                <div className="card-content">
-                  <div className="content-lines"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="marketplace-right">
-            <h2 className="marketplace-title">
-              The marketplace for<br/>
-              <strong>safe and ethical AI</strong><br/>
-              adoption
-            </h2>
-            <button onClick={() => setCurrentPage('platform')} className="get-started-btn">Get Started →</button>
-          </div>
-        </div>
-      </section>
 
       {/* Demo Video Section */}
       <section className="demo-video-section">
@@ -281,35 +256,16 @@ function App() {
       {/* Whitepaper Hero Section */}
       <section className="whitepaper-hero">
         <div className="whitepaper-hero-container">
-          <div className="whitepaper-content-area">
+          <div className="whitepaper-content-centered">
             <div className="whitepaper-header">
               <h1 className="whitepaper-title">Our Driving Thesis</h1>
               <p className="whitepaper-tagline">AI of, by, and for the People</p>
             </div>
             
-            <div className="whitepaper-main-content">
-              <div className="content-section">
-                <h2>What are we working towards?</h2>
-                <p>
-                  Hortus AI held a workshop on Reinforcement Learning from Human Feedback (RLHF) 
-                  with the New York Academy of Sciences in Spring 2024. Afterwards, we co-authored 
-                  a paper on our findings and the driving ideology behind Public and Responsible AI 
-                  through Societal Empowerment (PRAISE).
-                </p>
-                <p>
-                  There's no better way to get to know us than through our foundational research and methodology.
-                </p>
-              </div>
-            </div>
-          </div>
-          
-          <div className="whitepaper-sidebar">
-            <div className="download-section">
-              <h3>Download to learn more</h3>
-              <p>Access our complete research paper and methodology documentation.</p>
-              <a href="https://hortus.ai/wp-content/uploads/2025/02/HORTUS-WHITEPAPER.pdf" target="_blank" rel="noopener noreferrer" className="download-button">
+            <div className="whitepaper-download-section">
+              <a href="https://hortus.ai/wp-content/uploads/2025/02/HORTUS-WHITEPAPER.pdf" target="_blank" rel="noopener noreferrer" className="download-button-main">
                 <span className="download-icon">📄</span>
-                Download Whitepaper
+                Download here
               </a>
             </div>
           </div>
@@ -449,14 +405,21 @@ function App() {
       {renderPage()}
 
       {/* Footer */}
-      <footer className="footer">
-        <div className="footer-container">
-          <div className="footer-logo">
-            <span className="logo-icon">🌿</span>
-            <span className="footer-title">Hortus AI</span>
+      <footer className="modern-footer">
+        <div className="footer-content">
+          <div className="footer-main">
+            <div className="footer-brand">
+              <img src="/favicon.ico" alt="Hortus" className="footer-logo-icon" />
+              <span className="footer-brand-text">Hortus</span>
+            </div>
+            <p className="footer-description">Integrating AI, by and for the people.</p>
           </div>
-          <p className="footer-tagline">Integrating AI, by and for the people.</p>
-          <button onClick={() => setCurrentPage('platform')} className="footer-link">Our Projects</button>
+          <div className="footer-cta">
+            <button onClick={() => setCurrentPage('platform')} className="footer-cta-button">
+              <span className="cta-text">Explore Our Platform</span>
+              <span className="cta-arrow">→</span>
+            </button>
+          </div>
         </div>
       </footer>
     </div>
