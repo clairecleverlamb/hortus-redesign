@@ -281,7 +281,7 @@ function App() {
       {/* Platform Hero */}
       <section className="platform-hero">
         <div className="platform-hero-container">
-          <h1 className="platform-title">Our Platform</h1>
+          <h1 className="platform-title">Our Platform - Trellis</h1>
           <p className="platform-subtitle">
             Hortus is building the Consumer Reports for agentic AI, helping public-facing organizations compare, observe, and assess AI tools on use cases that matter to them.
           </p>

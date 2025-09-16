@@ -2978,8 +2978,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .platform-title {
-  font-size: 4.5rem;
-  font-weight: 300;
+  font-size: 4rem;
+  font-weight: 800;
   line-height: 1.1;
   margin-bottom: 2rem;
   background: linear-gradient(135deg, 
@@ -3264,7 +3264,7 @@ h1, h2, h3, h4, h5, h6 {
   }
   
   .platform-title {
-    font-size: 3.5rem;
+    font-size: 2.8rem;
   }
   
   .platform-subtitle {
@@ -3315,7 +3315,7 @@ h1, h2, h3, h4, h5, h6 {
   }
   
   .platform-title {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
   
   .platform-subtitle {
