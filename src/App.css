@@ -1516,21 +1516,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .news-hero-title {
-  font-size: 4rem;
-  font-weight: 800;
+  font-family: 'IBM Plex Serif', Georgia, serif;
+  font-size: 4.5rem;
+  font-weight: 400;
   line-height: 1.1;
   margin-bottom: 2rem;
   background: linear-gradient(135deg, 
     #ffffff 0%, 
-    #7dd3a0 25%, 
-    #ffffff 50%, 
-    #a8e6c8 75%, 
-    #ffffff 100%);
-  background-size: 200% 200%;
+    #7dd3a0 30%, 
+    #ffffff 70%, 
+    #a8e6c8 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: shimmer 4s ease-in-out infinite;
+  letter-spacing: -0.02em;
 }
 
 .news-hero-subtitle {
@@ -1911,7 +1910,7 @@ h1, h2, h3, h4, h5, h6 {
   }
   
   .news-hero-title {
-    font-size: 2.8rem;
+    font-size: 3rem;
   }
   
   .timeline-line {
@@ -1960,7 +1959,7 @@ h1, h2, h3, h4, h5, h6 {
   }
   
   .news-hero-title {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
   }
   
   .news-timeline {
@@ -2910,7 +2909,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Platform Page Styles */
 .platform-hero {
-  padding: 140px 2rem 80px;
+  padding: 180px 2rem 120px;
+  min-height: 100vh;
   background: 
     radial-gradient(circle at 30% 20%, rgba(125, 211, 160, 0.1) 0%, transparent 70%),
     radial-gradient(circle at 70% 80%, rgba(45, 90, 61, 0.08) 0%, transparent 60%),
@@ -2918,6 +2918,8 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 
 .platform-hero::before {
@@ -2944,7 +2946,10 @@ h1, h2, h3, h4, h5, h6 {
   left: -10%;
   width: 120%;
   height: 120%;
-  /* Background image temporarily disabled for deployment */
+  background-image: url('./sky-redblock.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   opacity: 0.12;
   z-index: -1;
   animation: cityFloat 30s ease-in-out infinite;
@@ -2978,21 +2983,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .platform-title {
-  font-size: 4rem;
-  font-weight: 800;
+  font-family: 'IBM Plex Serif', Georgia, serif;
+  font-size: 4.5rem;
+  font-weight: 400;
   line-height: 1.1;
   margin-bottom: 2rem;
   background: linear-gradient(135deg, 
     #ffffff 0%, 
-    #7dd3a0 25%, 
-    #ffffff 50%, 
-    #a8e6c8 75%, 
-    #ffffff 100%);
-  background-size: 300% 300%;
+    #7dd3a0 30%, 
+    #ffffff 70%, 
+    #a8e6c8 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: shimmer 6s ease-in-out infinite;
+  letter-spacing: -0.02em;
 }
 
 .platform-subtitle {
@@ -3260,11 +3264,12 @@ h1, h2, h3, h4, h5, h6 {
 /* Platform Page Responsive Design */
 @media (max-width: 768px) {
   .platform-hero {
-    padding: 120px 1.5rem 60px;
+    padding: 160px 1.5rem 100px;
+    min-height: 90vh;
   }
   
   .platform-title {
-    font-size: 2.8rem;
+    font-size: 3rem;
   }
   
   .platform-subtitle {
@@ -3311,11 +3316,12 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 480px) {
   .platform-hero {
-    padding: 100px 1rem 50px;
+    padding: 140px 1rem 80px;
+    min-height: 80vh;
   }
   
   .platform-title {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
   }
   
   .platform-subtitle {
@@ -4971,7 +4977,7 @@ h1, h2, h3, h4, h5, h6 {
 
 [data-theme="light"] .news-hero-title {
   color: #1b4332 !important;
-  font-weight: 900 !important;
+  font-weight: 400 !important;
   background: none !important;
   -webkit-text-fill-color: #1b4332 !important;
   -webkit-background-clip: initial !important;
@@ -5062,7 +5068,7 @@ h1, h2, h3, h4, h5, h6 {
 
 [data-theme="light"] .whitepaper-title {
   color: #1b4332 !important;
-  font-weight: 900 !important;
+  font-weight: 400 !important;
   background: none !important;
   -webkit-text-fill-color: #1b4332 !important;
   -webkit-background-clip: initial !important;
@@ -5191,7 +5197,7 @@ h1, h2, h3, h4, h5, h6 {
 
 [data-theme="light"] .platform-title {
   color: #1b4332 !important;
-  font-weight: 900 !important;
+  font-weight: 400 !important;
   background: none !important;
   -webkit-text-fill-color: #1b4332 !important;
   -webkit-background-clip: initial !important;
