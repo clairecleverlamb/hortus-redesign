@@ -1453,10 +1453,10 @@ h1, h2, h3, h4, h5, h6 {
 .news-hero::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
   background: 
     repeating-linear-gradient(
       45deg,
@@ -1465,6 +1465,46 @@ h1, h2, h3, h4, h5, h6 {
       rgba(125, 211, 160, 0.02) 122px
     );
   pointer-events: none;
+}
+
+.news-hero::after {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  background-image: url('../public/waterfall.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  opacity: 0.1;
+  z-index: -1;
+  animation: waterfallFlow 35s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes waterfallFlow {
+  0%, 100% { 
+    transform: translateY(0px) translateX(0px) scale(1);
+    opacity: 0.1;
+  }
+  20% { 
+    transform: translateY(-40px) translateX(-10px) scale(1.01);
+    opacity: 0.07;
+  }
+  40% { 
+    transform: translateY(-20px) translateX(15px) scale(1.02);
+    opacity: 0.13;
+  }
+  60% { 
+    transform: translateY(25px) translateX(-5px) scale(1.01);
+    opacity: 0.08;
+  }
+  80% { 
+    transform: translateY(10px) translateX(20px) scale(1.03);
+    opacity: 0.12;
+  }
 }
 
 .news-hero-container {
@@ -1952,6 +1992,44 @@ h1, h2, h3, h4, h5, h6 {
     linear-gradient(135deg, #0f1419 0%, #1a3d2e 50%, #0f1419 100%);
   display: flex;
   align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.whitepaper-hero::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  background-image: url('../public/woman-gardener.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  opacity: 0.08;
+  z-index: -1;
+  animation: floatAndScale 25s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+@keyframes floatAndScale {
+  0%, 100% { 
+    transform: translateY(0px) translateX(0px) scale(1) rotate(0deg);
+    opacity: 0.08;
+  }
+  25% { 
+    transform: translateY(-30px) translateX(15px) scale(1.02) rotate(0.5deg);
+    opacity: 0.06;
+  }
+  50% { 
+    transform: translateY(-15px) translateX(-10px) scale(1.01) rotate(-0.3deg);
+    opacity: 0.1;
+  }
+  75% { 
+    transform: translateY(20px) translateX(-15px) scale(1.03) rotate(0.2deg);
+    opacity: 0.07;
+  }
 }
 
 .whitepaper-hero-container {
@@ -2851,10 +2929,10 @@ h1, h2, h3, h4, h5, h6 {
 .platform-hero::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
   background: 
     repeating-linear-gradient(
       60deg,
@@ -2863,6 +2941,42 @@ h1, h2, h3, h4, h5, h6 {
       rgba(125, 211, 160, 0.02) 122px
     );
   pointer-events: none;
+}
+
+.platform-hero::after {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  background-image: url('../public/sky-redblock.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  opacity: 0.12;
+  z-index: -1;
+  animation: cityFloat 30s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes cityFloat {
+  0%, 100% { 
+    transform: translateY(0px) translateX(0px) scale(1);
+    opacity: 0.12;
+  }
+  30% { 
+    transform: translateY(-25px) translateX(20px) scale(1.01);
+    opacity: 0.08;
+  }
+  60% { 
+    transform: translateY(10px) translateX(-15px) scale(1.02);
+    opacity: 0.15;
+  }
+  80% { 
+    transform: translateY(-10px) translateX(10px) scale(1.01);
+    opacity: 0.1;
+  }
 }
 
 .platform-hero-container {
@@ -4860,6 +4974,10 @@ h1, h2, h3, h4, h5, h6 {
   background: linear-gradient(135deg, #ffffff 0%, var(--bg-secondary) 100%);
 }
 
+[data-theme="light"] .news-hero::after {
+  opacity: 0.04;
+}
+
 [data-theme="light"] .news-hero-title {
   color: #1b4332 !important;
   font-weight: 900 !important;
@@ -4941,6 +5059,10 @@ h1, h2, h3, h4, h5, h6 {
 /* Whitepaper Page Light Mode */
 [data-theme="light"] .whitepaper-hero {
   background: linear-gradient(135deg, #ffffff 0%, var(--bg-secondary) 100%);
+}
+
+[data-theme="light"] .whitepaper-hero::before {
+  opacity: 0.05;
 }
 
 [data-theme="light"] .whitepaper-hero-title {
@@ -5066,6 +5188,10 @@ h1, h2, h3, h4, h5, h6 {
 /* Platform Page Light Mode */
 [data-theme="light"] .platform-hero {
   background: linear-gradient(135deg, #ffffff 0%, var(--bg-secondary) 100%);
+}
+
+[data-theme="light"] .platform-hero::after {
+  opacity: 0.06;
 }
 
 [data-theme="light"] .platform-hero-title {
