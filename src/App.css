@@ -5221,22 +5221,31 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-muted) !important;
 }
 
-[data-theme="light"] .platform-detail-card {
-  background: var(--bg-tertiary);
-  border: 2px solid var(--border-color);
-  box-shadow: 0 12px 40px var(--shadow-color);
+[data-theme="light"] .detail-card {
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid rgba(5, 150, 105, 0.15);
+  box-shadow: 0 12px 40px rgba(0, 63, 51, 0.1);
+  backdrop-filter: blur(10px);
 }
 
-[data-theme="light"] .platform-detail-card h3 {
-  color: var(--text-primary) !important;
-  font-weight: 800 !important;
-  font-size: 1.5rem !important;
+[data-theme="light"] .detail-card h3 {
+  color: #003f33 !important;
+  font-weight: 700 !important;
 }
 
-[data-theme="light"] .platform-detail-card p {
-  color: var(--text-secondary) !important;
+[data-theme="light"] .detail-card p {
+  color: #005a4a !important;
   font-weight: 500 !important;
-  font-size: 1.1rem !important;
+}
+
+[data-theme="light"] .solution-features li {
+  color: #005a4a !important;
+}
+
+[data-theme="light"] .detail-card:hover {
+  background: rgba(255, 255, 255, 1);
+  border-color: rgba(5, 150, 105, 0.3);
+  box-shadow: 0 20px 50px rgba(0, 63, 51, 0.15);
 }
 
 [data-theme="light"] .platform-cta {
