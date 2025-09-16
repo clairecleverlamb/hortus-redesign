@@ -344,7 +344,7 @@ function App() {
         <div className="nav-container">
           <div className="nav-logo" onClick={() => setCurrentPage('home')}>
             <img src="/favicon.ico" alt="Hortus" className="company-logo" />
-            <span className="logo-text">Hortus</span>
+            <span className="logo-text">Hortus AI</span>
           </div>
           <div className="nav-right">
             <div className="nav-links">
@@ -400,7 +400,7 @@ function App() {
           <div className="footer-main">
             <div className="footer-brand">
               <img src="/favicon.ico" alt="Hortus" className="footer-logo-icon" />
-              <span className="footer-brand-text">Hortus</span>
+              <span className="footer-brand-text">Hortus AI</span>
             </div>
             <p className="footer-description">Integrating AI, by and for the people.</p>
           </div>
