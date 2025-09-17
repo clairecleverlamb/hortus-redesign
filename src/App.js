@@ -1,5 +1,6 @@
 import './App.css';
 import { useState, useEffect } from 'react';
+import womanGardenerImg from './woman-gardener.png';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -73,13 +74,10 @@ function App() {
           </div>
           <div className="ultra-hero-visual">
             <div className="ultra-hero-image">
-              <video 
-                src="/H.mp4" 
-                className="hero-logo-video" 
-                autoPlay 
-                loop 
-                muted 
-                playsInline
+              <img 
+                src="/Hortus-H-no-bg2.png" 
+                className="hero-logo-image" 
+                alt="Hortus AI Logo"
               />
             </div>
           </div>
@@ -254,8 +252,34 @@ function App() {
   const WhitepaperPage = () => (
     <>
       {/* Whitepaper Hero Section */}
-      <section className="whitepaper-hero">
-        <div className="whitepaper-hero-container">
+      <section className="whitepaper-hero" style={{
+        background: theme === 'light' ? `
+          radial-gradient(circle at 30% 20%, rgba(5, 150, 105, 0.08) 0%, transparent 60%),
+          radial-gradient(circle at 70% 80%, rgba(16, 185, 129, 0.06) 0%, transparent 50%),
+          linear-gradient(135deg, #f0fdf4 0%, #dcfce7 50%, #f0fdf4 100%)
+        ` : `
+          radial-gradient(circle at 20% 30%, rgba(125, 211, 160, 0.12) 0%, transparent 60%),
+          radial-gradient(circle at 70% 80%, rgba(45, 90, 61, 0.08) 0%, transparent 50%),
+          linear-gradient(135deg, #0f1419 0%, #1a3d2e 50%, #0f1419 100%)
+        `
+      }}>
+        {/* Woman gardener background image */}
+        <div style={{ 
+          display: 'flex', 
+          height: '100%', 
+          alignItems: 'center', 
+          justifyContent: 'center',
+          maxWidth: '1200px',
+          margin: '0 auto',
+          padding: '0 2rem'
+        }}>
+          {/* Left half - Text content */}
+          <div className="whitepaper-hero-container" style={{ 
+            flex: '1', 
+            textAlign: 'center', 
+            paddingRight: '2rem',
+            zIndex: 2 
+          }}>
           <div className="whitepaper-content-centered">
             <div className="whitepaper-header">
               <h1 className="whitepaper-title">Our Driving Thesis</h1>
@@ -268,6 +292,29 @@ function App() {
                 Download here
               </a>
             </div>
+          </div>
+          </div>
+          
+          {/* Right half - Image */}
+          <div style={{ 
+            flex: '1', 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'center',
+            paddingLeft: '2rem'
+          }}>
+            <img 
+              src={womanGardenerImg} 
+              alt="" 
+              style={{
+                width: '90%',
+                maxWidth: '600px',
+                height: 'auto',
+                opacity: '0.7',
+                pointerEvents: 'none',
+                filter: 'brightness(1.05) contrast(1.05)'
+              }}
+            />
           </div>
         </div>
       </section>
