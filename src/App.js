@@ -9,6 +9,7 @@ function App() {
     const savedTheme = localStorage.getItem('hortus-theme');
     return savedTheme || 'dark';
   });
+  const [hoveredFeature, setHoveredFeature] = useState(null);
 
   // Apply theme to document
   useEffect(() => {
@@ -57,18 +58,17 @@ function App() {
         <div className="ultra-hero-container">
           <div className="ultra-hero-content">
             <div className="hero-text-container">
-              <h1 className="hero-main-title">
-                The Consumer Reports<br />
-                <span className="hero-accent-text">for AI.</span>
-              </h1>
-              <p className="hero-description">
-                We help organizations make informed decisions about chatbots, agents, ML tools, and everything in between.
-              </p>
+            <h1 className="hero-main-title">
+              <strong>Consumer Reports</strong> for <span className="hero-accent-text">AI Tools</span>
+            </h1>
+            <p className="hero-description">
+              We find the right app for your needs: chatbots, agents, ML platforms, and everything in between.
+            </p>
             </div>
             <div className="ultra-hero-buttons">
               <button onClick={() => setCurrentPage('platform')} className="ultra-demo-btn">
                 <span className="play-icon">▶</span>
-                Live Demo
+                Learn More
               </button>
             </div>
           </div>
@@ -92,17 +92,47 @@ function App() {
             <p>Our evaluations are based on transparency, rigor, and public benefit.</p>
           </div>
           <div className="features-grid">
-            <div className="feature-card">
-              <h3>Public Interest First</h3>
-              <p>AI systems designed with public input and oversight, not just corporate profits</p>
+            <div 
+              className={`feature-card ${hoveredFeature === 'public' ? 'expanded' : ''}`}
+              onClick={() => setHoveredFeature(hoveredFeature === 'public' ? null : 'public')}
+            >
+              <div className="feature-header">
+                <h3>Public Interest First</h3>
+                <span className="expand-icon">{hoveredFeature === 'public' ? '−' : '+'}</span>
+              </div>
+              {hoveredFeature === 'public' && (
+                <div className="feature-details">
+                  <p className="feature-expanded">→We rate AI systems for public benefit, not just corporate profits</p>
+                </div>
+              )}
             </div>
-            <div className="feature-card">
-              <h3>Best In Class Testing</h3>
-              <p>500+ AI tools evaluated across 300+ use cases with comprehensive metrics</p>
+            <div 
+              className={`feature-card ${hoveredFeature === 'testing' ? 'expanded' : ''}`}
+              onClick={() => setHoveredFeature(hoveredFeature === 'testing' ? null : 'testing')}
+            >
+              <div className="feature-header">
+                <h3>Best In Class Testing</h3>
+                <span className="expand-icon">{hoveredFeature === 'testing' ? '−' : '+'}</span>
+              </div>
+              {hoveredFeature === 'testing' && (
+                <div className="feature-details">
+                  <p className="feature-expanded">→500+ AI tools evaluated on 300+ use cases with comprehensive metrics</p>
+                </div>
+              )}
             </div>
-            <div className="feature-card">
-              <h3>Impartial Process</h3>
-              <p>Open methodologies and clear documentation you can trust and verify</p>
+            <div 
+              className={`feature-card ${hoveredFeature === 'impartial' ? 'expanded' : ''}`}
+              onClick={() => setHoveredFeature(hoveredFeature === 'impartial' ? null : 'impartial')}
+            >
+              <div className="feature-header">
+                <h3>Impartial Process</h3>
+                <span className="expand-icon">{hoveredFeature === 'impartial' ? '−' : '+'}</span>
+              </div>
+              {hoveredFeature === 'impartial' && (
+                <div className="feature-details">
+                  <p className="feature-expanded">→Open methodologies and clear documentation you can trust and verify</p>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -447,9 +477,8 @@ function App() {
           <div className="footer-main">
             <div className="footer-brand">
               <img src="/favicon.ico" alt="Hortus" className="footer-logo-icon" />
-              <span className="footer-brand-text">Hortus AI</span>
+              <span className="footer-brand-text">Hortus AI, Inc.</span>
             </div>
-            <p className="footer-description">Integrating AI, by and for the people.</p>
           </div>
           <div className="footer-cta">
             <button onClick={() => setCurrentPage('platform')} className="footer-cta-button">
