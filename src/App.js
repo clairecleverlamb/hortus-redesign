@@ -138,13 +138,18 @@ function App() {
         </div>
       </section>
 
+      {/* Decorative Divider between Features and Demo */}
+      <div className="section-divider" aria-hidden="true">
+        <span className="divider-line" />
+        <span className="divider-dot" />
+        <span className="divider-line" />
+      </div>
 
       {/* Demo Video Section */}
       <section className="demo-video-section">
         <div className="demo-container">
           <div className="demo-content">
             <h2>See Hortus in Action</h2>
-            <p>Watch how we're making AI evaluation transparent and accessible for everyone.</p>
           </div>
           <div className="video-placeholder">
             <div className="video-frame">
@@ -165,8 +170,8 @@ function App() {
       <section className="news-hero">
         <div className="news-hero-container">
           <div className="news-hero-content">
-            <h1 className="news-hero-title">Latest News & Updates</h1>
-            <p className="news-hero-subtitle">Stay informed about Hortus AI developments, partnerships, and industry insights</p>
+            <h1 className="news-hero-title">News & Updates</h1>
+            <p className="news-hero-subtitle">Stay informed about developments, partnerships, and industry insights</p>
           </div>
           <div className="news-hero-decoration">
             <div className="news-floating-element">📰</div>
@@ -208,56 +213,21 @@ function App() {
               <time>Tuesday February 18th</time>
             </div>
             <div className="news-card">
-              <h2 className="news-title">Mission Statement & Partnership Announcement</h2>
+              <h2 className="news-title">Hortus Joins New Responsible AI Partnership</h2>
               <p className="news-excerpt">
-                Hortus publishes a comprehensive press release announcing its mission, public partnerships, and whitepaper detailing our approach to democratizing AI development and ensuring ethical implementation across industries.
+                We’re proud to join a coalition of public-interest organizations advancing transparent evaluation for AI systems.
               </p>
               <div className="news-meta">
-                <span className="news-category">Press Release</span>
-                <button className="news-link" onClick={() => alert('Press release coming soon!')}>
-                  Read Full Release
+                <span className="news-category">Partnership</span>
+                <a href="#" className="news-link">
+                  Learn more
                   <span className="link-arrow">→</span>
-                </button>
+                </a>
               </div>
             </div>
           </article>
 
-          <article className="news-item">
-            <div className="news-date">
-              <span className="date-circle"></span>
-              <time>Monday January 27th</time>
-            </div>
-            <div className="news-card">
-              <h2 className="news-title">Featured on GovAI's Substack</h2>
-              <p className="news-excerpt">
-                Hortus was prominently featured in GovAI's latest Substack publication, highlighting our innovative approach to AI governance and our contributions to the public discourse on responsible AI development.
-              </p>
-              <div className="news-meta">
-                <span className="news-category">Media Coverage</span>
-                <button className="news-link" onClick={() => alert('GovAI article link coming soon!')}>
-                  View Article
-                  <span className="link-arrow">→</span>
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <article className="news-item upcoming">
-            <div className="news-date">
-              <span className="date-circle upcoming-circle"></span>
-              <time>Coming Soon</time>
-            </div>
-            <div className="news-card upcoming-card">
-              <h2 className="news-title">Upcoming Research Publication</h2>
-              <p className="news-excerpt">
-                We're preparing to release groundbreaking research on AI transparency frameworks and their implementation in real-world scenarios. Stay tuned for detailed findings and practical applications.
-              </p>
-              <div className="news-meta">
-                <span className="news-category">Research</span>
-                <span className="news-status">In Progress</span>
-              </div>
-            </div>
-          </article>
+          {/* Removed the 'Upcoming Research Publication' item as requested */}
         </div>
       </section>
 
@@ -266,7 +236,7 @@ function App() {
         <div className="newsletter-container">
           <div className="newsletter-content">
             <h2 className="newsletter-title">Stay Updated</h2>
-            <p className="newsletter-subtitle">Get the latest Hortus AI news and insights delivered to your inbox</p>
+            <p className="newsletter-subtitle">Get the latest Hortus AI news and insights delivered to you</p>
             <form className="newsletter-form">
               <div className="newsletter-input-group">
                 <input type="email" placeholder="Enter your email address" className="newsletter-input" required />
