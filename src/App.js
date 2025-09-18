@@ -447,10 +447,10 @@ function App() {
             </div>
           </div>
           <div className="footer-cta">
-            <button onClick={() => setCurrentPage('platform')} className="footer-cta-button">
+            <a href="https://trellis.hortus.ai" target="_blank" rel="noopener noreferrer" className="footer-cta-button">
               <span className="cta-text">Explore Our Platform</span>
               <span className="cta-arrow">→</span>
-            </button>
+            </a>
           </div>
         </div>
       </footer>
