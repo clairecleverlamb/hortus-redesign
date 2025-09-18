@@ -104,7 +104,7 @@ function App() {
               </div>
               {hoveredFeature === 'public' && (
                 <div className="feature-details">
-                  <p className="feature-expanded">→We rate AI systems for public benefit, not just corporate profits</p>
+                  <p className="feature-expanded">We rate AI systems for public benefit, not just corporate profits</p>
                 </div>
               )}
             </div>
@@ -118,7 +118,7 @@ function App() {
               </div>
               {hoveredFeature === 'testing' && (
                 <div className="feature-details">
-                  <p className="feature-expanded">→500+ AI tools evaluated on 300+ use cases with comprehensive metrics</p>
+                  <p className="feature-expanded">500+ AI tools evaluated on 300+ use cases with comprehensive metrics</p>
                 </div>
               )}
             </div>
@@ -132,7 +132,7 @@ function App() {
               </div>
               {hoveredFeature === 'impartial' && (
                 <div className="feature-details">
-                  <p className="feature-expanded">→Open methodologies and clear documentation you can trust and verify</p>
+                  <p className="feature-expanded">Open methodologies and clear documentation you can trust and verify</p>
                 </div>
               )}
             </div>
@@ -325,9 +325,9 @@ function App() {
       {/* Platform Hero */}
       <section className="platform-hero">
         <div className="platform-hero-container">
-          <h1 className="platform-title">Our Platform - Trellis</h1>
+          <h1 className="platform-title">Hortus Trellis</h1>
           <p className="platform-subtitle">
-            Hortus is building the Consumer Reports for agentic AI, helping public-facing organizations compare, observe, and assess AI tools on use cases that matter to them.
+            Our platform helps individuals, businesses, nonprofits, and government teams match AI tools to use cases that matter to their constituencies.
           </p>
         </div>
       </section>
@@ -351,8 +351,7 @@ function App() {
           <div className="detail-section">
             <div className="detail-card">
               <h3>The Problem</h3>
-              <p>
-                The AI boom has flooded the market with tools—many with lofty promises, few that actually work. Businesses, schools, government teams, nonprofits, and everyday users lack a reliable source to cut through the hype and make informed choices.
+              <p>The AI boom has flooded the market with tools—many with lofty promises, few that actually work. Businesses, schools, government teams, nonprofits, and everyday users lack a reliable source to cut through the hype and make informed choices.
               </p>
             </div>
 
@@ -362,7 +361,7 @@ function App() {
                 Hortus Trellis is an independent, rigorous platform evaluating AI products for usability, safety, privacy, and performance. Think Consumer Reports, but for AI—built on ethical audits and real user feedback. Trellis includes:
               </p>
               <ul className="solution-features">
-                <li>500+ AI tools</li>
+                <li>Robust information on 500+ AI tools</li>
                 <li>300+ use cases</li>
                 <li>Custom metrics for healthcare, education, transportation, and public safety</li>
               </ul>
@@ -371,7 +370,7 @@ function App() {
             <div className="detail-card">
               <h3>What's Unprecedented</h3>
               <p>
-                Trellis is the first public interest assessment dashboard designed to cut through the jungle of AI platforms and providers. It has been built directly with Chief Data and Privacy Officers across the country who serve as advisors and beta testers.
+              Trellis is the first public interest assessment dashboard designed to cut through the jungle of AI platforms and providers. It has been built directly with Chief Data and Privacy Officers across the country who serve as advisors and testers.
               </p>
             </div>
           </div>
