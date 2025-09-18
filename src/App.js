@@ -74,10 +74,13 @@ function App() {
           </div>
           <div className="ultra-hero-visual">
             <div className="ultra-hero-image">
-              <img 
-                src="/Hortus-H-no-bg2.png" 
-                className="hero-logo-image" 
-                alt="Hortus AI Logo"
+              <video 
+                src="/Hortus_logo_dynamic.mp4" 
+                className="hero-logo-video" 
+                autoPlay 
+                loop 
+                muted 
+                playsInline
               />
             </div>
           </div>
@@ -89,7 +92,6 @@ function App() {
         <div className="features-container">
           <div className="features-header">
             <h2>Why choose Hortus?</h2>
-            <p>Our evaluations are based on transparency, rigor, and public benefit.</p>
           </div>
           <div className="features-grid">
             <div 
@@ -173,11 +175,7 @@ function App() {
             <h1 className="news-hero-title">News & Updates</h1>
             <p className="news-hero-subtitle">Stay informed about developments, partnerships, and industry insights</p>
           </div>
-          <div className="news-hero-decoration">
-            <div className="news-floating-element">📰</div>
-            <div className="news-floating-element">🚀</div>
-            <div className="news-floating-element">💡</div>
-          </div>
+          {/* decorative background now handled via CSS pseudo-element; no emoji elements */}
         </div>
       </section>
 
@@ -282,8 +280,7 @@ function App() {
           }}>
           <div className="whitepaper-content-centered">
             <div className="whitepaper-header">
-              <h1 className="whitepaper-title">Our Driving Thesis</h1>
-              <p className="whitepaper-tagline">AI of, by, and for the People</p>
+              <h1 className="whitepaper-title">AI Of, By, and For The People</h1>
             </div>
             
             <div className="whitepaper-download-section">

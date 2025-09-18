@@ -1540,40 +1540,32 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .news-hero-decoration {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  align-items: center;
-  justify-content: center;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
 }
 
-.news-floating-element {
-  font-size: 4rem;
-  opacity: 0.7;
-  animation: floatNews 3s ease-in-out infinite;
-  filter: drop-shadow(0 0 20px rgba(125, 211, 160, 0.3));
+/* Replace emoji decoration with blended sky-redblock image */
+.news-hero-decoration::before {
+  content: '';
+  position: absolute;
+  right: -20%;
+  top: -20%;
+  width: 140%;
+  height: 160%;
+  background-image: url('./sky-redblock.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center right;
+  opacity: 0.08;
+  filter: blur(1px) saturate(0.85);
+  mix-blend-mode: soft-light;
+  animation: newsBgFloat 35s ease-in-out infinite;
 }
 
-.news-floating-element:nth-child(2) {
-  animation-delay: 1s;
-  animation-duration: 4s;
-}
-
-.news-floating-element:nth-child(3) {
-  animation-delay: 2s;
-  animation-duration: 3.5s;
-}
-
-@keyframes floatNews {
-  0%, 100% { 
-    transform: translateY(0px) rotate(0deg) scale(1); 
-  }
-  33% { 
-    transform: translateY(-20px) rotate(5deg) scale(1.1); 
-  }
-  66% { 
-    transform: translateY(-10px) rotate(-3deg) scale(0.95); 
-  }
+@keyframes newsBgFloat {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.14; }
+  50% { transform: translateY(-10px) scale(1.02); opacity: 0.18; }
 }
 
 /* News Timeline */
@@ -4120,7 +4112,8 @@ h1, h2, h3, h4, h5, h6 {
   font-style: italic;
 }
 
-.hero-logo-image {
+.hero-logo-image,
+.hero-logo-video {
   max-width: 500px;
   max-height: 500px;
   width: auto;
@@ -4135,7 +4128,8 @@ h1, h2, h3, h4, h5, h6 {
 /* Removed hover effects */
 
 /* Light mode styling - bright, clean, professional */
-[data-theme="light"] .hero-logo-image {
+[data-theme="light"] .hero-logo-image,
+[data-theme="light"] .hero-logo-video {
   filter: invert(1) brightness(0) contrast(1);
 }
 
@@ -4856,7 +4850,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 [data-theme="light"] .hero-accent-text {
-  color: var(--accent-secondary) !important;
+  color: #003f33 !important;
   font-weight: 400 !important;
 }
 
