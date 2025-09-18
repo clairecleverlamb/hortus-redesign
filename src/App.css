@@ -2943,7 +2943,7 @@ h1, h2, h3, h4, h5, h6 {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  opacity: 0.12;
+  opacity: 0.25;
   z-index: -1;
   animation: cityFloat 30s ease-in-out infinite;
   pointer-events: none;
@@ -3480,9 +3480,26 @@ h1, h2, h3, h4, h5, h6 {
 /* Features Section */
 .features {
   padding: 100px 2rem;
+  position: relative;
   background: 
     radial-gradient(circle at 70% 80%, rgba(125, 211, 160, 0.05) 0%, transparent 60%),
     linear-gradient(135deg, rgba(255, 255, 255, 0.01) 0%, rgba(15, 20, 25, 0.03) 100%);
+}
+
+.features::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('./COVERwobg.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  opacity: 0.25;
+  z-index: -1;
+  pointer-events: none;
 }
 
 .features-container {
@@ -3566,23 +3583,29 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .feature-card {
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 16px;
-  padding: 2rem;
-  border: 1px solid rgba(125, 211, 160, 0.1);
-  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 2.5rem;
+  border: 2px solid rgba(125, 211, 160, 0.2);
+  transition: all 0.4s ease;
   cursor: pointer;
   min-height: auto;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .feature-card:hover {
-  border-color: rgba(125, 211, 160, 0.2);
-  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(125, 211, 160, 0.4);
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
 .feature-card.expanded {
   border-color: var(--accent-primary);
-  background: rgba(210, 242, 184, 0.05);
+  background: rgba(210, 242, 184, 0.12);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 48px rgba(125, 211, 160, 0.2);
 }
 
 .feature-header {
@@ -3600,16 +3623,27 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .expand-icon {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   color: var(--accent-primary);
   font-weight: 300;
   transition: all 0.3s ease;
+  background: rgba(125, 211, 160, 0.1);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .feature-details {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid rgba(125, 211, 160, 0.2);
+  background: rgba(125, 211, 160, 0.03);
+  border-radius: 12px;
+  padding: 1.5rem;
   margin-top: 1.5rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(125, 211, 160, 0.1);
 }
 
 .feature-expanded {
@@ -4448,6 +4482,11 @@ h1, h2, h3, h4, h5, h6 {
   background: linear-gradient(135deg, #ffffff 0%, var(--bg-secondary) 100%);
 }
 
+[data-theme="light"] .features::before {
+  opacity: 0.18;
+  background-blend-mode: multiply;
+}
+
 [data-theme="light"] .features-header h2 {
   color: #1b4332 !important;
   font-weight: 400 !important;
@@ -4459,18 +4498,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 [data-theme="light"] .feature-card {
-  background: rgba(0, 63, 51, 0.02);
-  border: 1px solid rgba(0, 63, 51, 0.1);
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid rgba(0, 63, 51, 0.15);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 63, 51, 0.08);
 }
 
 [data-theme="light"] .feature-card:hover {
-  border-color: rgba(0, 63, 51, 0.2);
-  background: rgba(0, 63, 51, 0.04);
+  border-color: rgba(0, 63, 51, 0.3);
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 63, 51, 0.12);
 }
 
 [data-theme="light"] .feature-card.expanded {
   border-color: var(--accent-primary);
-  background: rgba(0, 63, 51, 0.05);
+  background: rgba(210, 242, 184, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 48px rgba(0, 63, 51, 0.15);
 }
 
 [data-theme="light"] .feature-card h3 {
@@ -4485,10 +4530,12 @@ h1, h2, h3, h4, h5, h6 {
 
 [data-theme="light"] .expand-icon {
   color: var(--accent-primary) !important;
+  background: rgba(0, 63, 51, 0.08) !important;
 }
 
 [data-theme="light"] .feature-details {
-  border-top-color: rgba(0, 63, 51, 0.1);
+  border-top-color: rgba(0, 63, 51, 0.2);
+  background: rgba(0, 63, 51, 0.04);
 }
 
 /* Light Mode - Marketplace Section */
@@ -5199,7 +5246,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 [data-theme="light"] .platform-hero::after {
-  opacity: 0.06;
+  opacity: 0.15;
 }
 
 [data-theme="light"] .platform-hero-title {
