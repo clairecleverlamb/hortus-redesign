@@ -155,10 +155,15 @@ function App() {
           </div>
           <div className="video-placeholder">
             <div className="video-frame">
-              <div className="play-button">
-                <span className="play-icon">▶</span>
-              </div>
-              <p className="video-note">Demo video will be embedded here</p>
+              <video 
+                src="/demo_final.mov" 
+                className="demo-video" 
+                controls 
+                preload="metadata"
+                poster=""
+              >
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
         </div>
@@ -336,11 +341,15 @@ function App() {
       <section className="platform-demo">
         <div className="platform-demo-container">
           <div className="demo-placeholder">
-            <div className="demo-placeholder-content">
-              <div className="demo-placeholder-icon">🎥</div>
-              <h3>Platform Demo</h3>
-              <p>Your screenshot/video will be displayed here</p>
-            </div>
+            <video 
+              src="/demo_final.mov" 
+              className="platform-demo-video" 
+              controls 
+              preload="metadata"
+              poster=""
+            >
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
       </section>
