@@ -4136,9 +4136,13 @@ h1, h2, h3, h4, h5, h6 {
   width: auto;
   height: auto;
   position: relative;
-  background: transparent;
-  mix-blend-mode: screen;
-  filter: invert(0) brightness(1.5) contrast(1.2);
+  background: transparent !important;
+  mix-blend-mode: lighten;
+  filter: 
+    brightness(1.5) 
+    contrast(2.5) 
+    invert(0) 
+    hue-rotate(0deg);
 }
 
 /* Removed duplicate styling and orphaned CSS block */
@@ -4150,7 +4154,14 @@ h1, h2, h3, h4, h5, h6 {
 /* Light mode styling - bright, clean, professional */
 [data-theme="light"] .hero-logo-image,
 [data-theme="light"] .hero-logo-video {
-  filter: none;
+  filter: 
+    brightness(1.2) 
+    contrast(1.5) 
+    hue-rotate(120deg) 
+    saturate(0.8);
+  mix-blend-mode: multiply;
+  background: linear-gradient(135deg, #059669, #047857, #065f46);
+  border-radius: 20px;
 }
 
 /* Removed duplicate light mode styling */
