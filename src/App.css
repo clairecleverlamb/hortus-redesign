@@ -4136,6 +4136,9 @@ h1, h2, h3, h4, h5, h6 {
   width: auto;
   height: auto;
   position: relative;
+  background: transparent;
+  mix-blend-mode: screen;
+  filter: invert(0) brightness(1.5) contrast(1.2);
 }
 
 /* Removed duplicate styling and orphaned CSS block */
