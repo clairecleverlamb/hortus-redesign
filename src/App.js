@@ -156,11 +156,13 @@ function App() {
           <div className="video-placeholder">
             <div className="video-frame">
               <video 
-                src="/demo_final.mov" 
+                src="/demo_final_downscaled.mp4" 
                 className="demo-video" 
                 controls 
                 preload="metadata"
                 poster=""
+                playsInline
+                webkit-playsinline="true"
               >
                 Your browser does not support the video tag.
               </video>
@@ -222,10 +224,10 @@ function App() {
               </p>
               <div className="news-meta">
                 <span className="news-category">Partnership</span>
-                <a href="#" className="news-link">
+                <button className="news-link" onClick={() => console.log('Partnership details coming soon')}>
                   Learn more
                   <span className="link-arrow">→</span>
-                </a>
+                </button>
               </div>
             </div>
           </article>
@@ -342,11 +344,13 @@ function App() {
         <div className="platform-demo-container">
           <div className="demo-placeholder">
             <video 
-              src="/demo_final.mov" 
+              src="/demo_final_downscaled.mp4" 
               className="platform-demo-video" 
               controls 
               preload="metadata"
               poster=""
+              playsInline
+              webkit-playsinline="true"
             >
               Your browser does not support the video tag.
             </video>
