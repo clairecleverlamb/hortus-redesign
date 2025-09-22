@@ -4208,13 +4208,185 @@ h1, h2, h3, h4, h5, h6 {
   pointer-events: none;
 }
 
-/* Additional masking for video to remove black background */
+/* Futuristic tech-enhanced video with holographic effects */
 [data-theme="light"] .hero-logo-video {
-  mask: radial-gradient(ellipse at center, black 60%, transparent 85%);
-  -webkit-mask: radial-gradient(ellipse at center, black 60%, transparent 85%);
+  filter: 
+    brightness(2.8) 
+    contrast(1.1) 
+    saturate(1.4)
+    hue-rotate(50deg)
+    drop-shadow(0 0 20px rgba(5, 150, 105, 0.3))
+    drop-shadow(0 0 40px rgba(16, 185, 129, 0.2)) !important;
+  background: 
+    conic-gradient(from 45deg at center, 
+      rgba(255, 255, 255, 0.95) 0deg, 
+      rgba(240, 253, 244, 0.9) 60deg, 
+      rgba(220, 252, 231, 0.85) 120deg, 
+      rgba(187, 247, 208, 0.8) 180deg, 
+      rgba(134, 239, 172, 0.85) 240deg, 
+      rgba(220, 252, 231, 0.9) 300deg, 
+      rgba(255, 255, 255, 0.95) 360deg),
+    radial-gradient(ellipse at center, rgba(255, 255, 255, 0.8) 0%, transparent 70%) !important;
+  border-radius: 18px !important;
+  padding: 1.2rem !important;
+  position: relative !important;
+  overflow: hidden !important;
+  mask: 
+    radial-gradient(ellipse at center, black 85%, transparent 100%),
+    linear-gradient(135deg, black 0%, rgba(0,0,0,0.8) 100%) !important;
+  -webkit-mask: 
+    radial-gradient(ellipse at center, black 85%, transparent 100%),
+    linear-gradient(135deg, black 0%, rgba(0,0,0,0.8) 100%) !important;
+  mask-composite: intersect !important;
+  -webkit-mask-composite: source-in !important;
   box-shadow: 
-    inset 0 0 50px rgba(240, 253, 244, 0.8),
-    0 8px 32px rgba(5, 150, 105, 0.15);
+    0 0 30px rgba(5, 150, 105, 0.4),
+    0 0 60px rgba(16, 185, 129, 0.2),
+    inset 0 1px 2px rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Cutting-edge tech-savvy frame with futuristic design */
+[data-theme="light"] .ultra-hero-image {
+  background: 
+    conic-gradient(from 0deg at 50% 50%, 
+      rgba(5, 150, 105, 0.08) 0deg, 
+      rgba(16, 185, 129, 0.12) 60deg, 
+      rgba(34, 197, 94, 0.1) 120deg, 
+      rgba(59, 130, 246, 0.08) 180deg, 
+      rgba(139, 92, 246, 0.06) 240deg, 
+      rgba(236, 72, 153, 0.08) 300deg, 
+      rgba(5, 150, 105, 0.08) 360deg),
+    radial-gradient(ellipse at center, rgba(255, 255, 255, 0.15) 0%, transparent 70%),
+    linear-gradient(135deg, 
+      rgba(248, 250, 252, 0.9) 0%, 
+      rgba(241, 245, 249, 0.8) 25%, 
+      rgba(226, 232, 240, 0.7) 50%, 
+      rgba(241, 245, 249, 0.8) 75%, 
+      rgba(248, 250, 252, 0.9) 100%) !important;
+  border-radius: 24px !important;
+  padding: 1.5rem !important;
+  backdrop-filter: blur(20px) saturate(130%) brightness(110%) contrast(105%) !important;
+  border: 2px solid transparent !important;
+  background-clip: padding-box !important;
+  position: relative !important;
+  overflow: hidden !important;
+  box-shadow: 
+    0 25px 50px rgba(5, 150, 105, 0.15),
+    0 15px 35px rgba(16, 185, 129, 0.1),
+    0 8px 20px rgba(34, 197, 94, 0.08),
+    inset 0 1px 3px rgba(255, 255, 255, 0.8),
+    inset 0 -1px 3px rgba(5, 150, 105, 0.1) !important;
+}
+
+/* Futuristic holographic border with tech glow */
+[data-theme="light"] .ultra-hero-image::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: conic-gradient(from 0deg at 50% 50%, 
+    rgba(5, 150, 105, 0.4) 0deg, 
+    rgba(16, 185, 129, 0.6) 45deg, 
+    rgba(34, 197, 94, 0.5) 90deg, 
+    rgba(59, 130, 246, 0.4) 135deg, 
+    rgba(139, 92, 246, 0.3) 180deg, 
+    rgba(236, 72, 153, 0.4) 225deg, 
+    rgba(16, 185, 129, 0.5) 270deg, 
+    rgba(5, 150, 105, 0.4) 315deg, 
+    rgba(5, 150, 105, 0.4) 360deg);
+  border-radius: 26px;
+  z-index: -1;
+  pointer-events: none;
+  animation: techRotate 8s linear infinite;
+}
+
+/* Premium tech highlight with neon accent */
+[data-theme="light"] .ultra-hero-image::after {
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  right: 1px;
+  bottom: 1px;
+  background: 
+    linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.3) 0%, 
+      rgba(5, 150, 105, 0.1) 25%, 
+      transparent 50%, 
+      rgba(16, 185, 129, 0.08) 75%, 
+      rgba(255, 255, 255, 0.2) 100%),
+    radial-gradient(ellipse at top left, rgba(255, 255, 255, 0.4) 0%, transparent 40%);
+  border-radius: 23px;
+  pointer-events: none;
+}
+
+/* Tech-savvy rotating animation */
+@keyframes techRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Futuristic pulsing glow animation */
+@keyframes techPulse {
+  0%, 100% { 
+    box-shadow: 
+      0 0 30px rgba(5, 150, 105, 0.4),
+      0 0 60px rgba(16, 185, 129, 0.2),
+      inset 0 1px 2px rgba(255, 255, 255, 0.6);
+  }
+  50% { 
+    box-shadow: 
+      0 0 40px rgba(5, 150, 105, 0.6),
+      0 0 80px rgba(16, 185, 129, 0.3),
+      0 0 120px rgba(34, 197, 94, 0.1),
+      inset 0 1px 2px rgba(255, 255, 255, 0.8);
+  }
+}
+
+/* Add pulsing animation to video */
+[data-theme="light"] .hero-logo-video {
+  animation: techPulse 4s ease-in-out infinite;
+}
+
+/* Enhanced tech container with hover effects */
+[data-theme="light"] .ultra-hero-image:hover::before {
+  animation-duration: 4s;
+}
+
+/* Add subtle tech grid pattern overlay */
+[data-theme="light"] .ultra-hero-image {
+  background-image: 
+    conic-gradient(from 0deg at 50% 50%, 
+      rgba(5, 150, 105, 0.08) 0deg, 
+      rgba(16, 185, 129, 0.12) 60deg, 
+      rgba(34, 197, 94, 0.1) 120deg, 
+      rgba(59, 130, 246, 0.08) 180deg, 
+      rgba(139, 92, 246, 0.06) 240deg, 
+      rgba(236, 72, 153, 0.08) 300deg, 
+      rgba(5, 150, 105, 0.08) 360deg),
+    radial-gradient(ellipse at center, rgba(255, 255, 255, 0.15) 0%, transparent 70%),
+    linear-gradient(135deg, 
+      rgba(248, 250, 252, 0.9) 0%, 
+      rgba(241, 245, 249, 0.8) 25%, 
+      rgba(226, 232, 240, 0.7) 50%, 
+      rgba(241, 245, 249, 0.8) 75%, 
+      rgba(248, 250, 252, 0.9) 100%),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 2px,
+      rgba(5, 150, 105, 0.02) 2px,
+      rgba(5, 150, 105, 0.02) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 2px,
+      rgba(16, 185, 129, 0.02) 2px,
+      rgba(16, 185, 129, 0.02) 4px
+    ) !important;
 }
 
 /* Removed duplicate light mode styling */
@@ -4532,13 +4704,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 [data-theme="light"] .video-frame {
-  background: rgba(248, 250, 252, 0.8);
-  border: 2px dashed var(--border-color);
+  background: linear-gradient(135deg, 
+    rgba(240, 253, 244, 0.9) 0%, 
+    rgba(220, 252, 231, 0.8) 50%, 
+    rgba(187, 247, 208, 0.7) 100%);
+  border: 2px dashed rgba(5, 150, 105, 0.3);
+  backdrop-filter: blur(10px) saturate(150%);
 }
 
 [data-theme="light"] .video-frame:hover {
-  background: rgba(248, 250, 252, 1);
-  border-color: var(--accent-primary);
+  background: linear-gradient(135deg, 
+    rgba(240, 253, 244, 1) 0%, 
+    rgba(220, 252, 231, 0.95) 50%, 
+    rgba(187, 247, 208, 0.9) 100%);
+  border-color: rgba(5, 150, 105, 0.5);
+  box-shadow: 0 15px 35px rgba(5, 150, 105, 0.1);
 }
 
 [data-theme="light"] .video-note {
@@ -5345,8 +5525,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 [data-theme="light"] .platform-demo {
-  background: rgba(255, 255, 255, 0.6);
-  border: 2px dashed rgba(15, 20, 25, 0.2);
+  background: linear-gradient(135deg, 
+    rgba(240, 253, 244, 0.8) 0%, 
+    rgba(220, 252, 231, 0.6) 50%, 
+    rgba(187, 247, 208, 0.4) 100%);
+  border: 2px dashed rgba(5, 150, 105, 0.2);
 }
 
 [data-theme="light"] .demo-placeholder h3 {
