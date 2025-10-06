@@ -156,7 +156,7 @@ function App() {
           <div className="video-placeholder">
             <div className="video-frame">
               <video 
-                src="/demo_final_downscaled.mp4" 
+                src="/final_demo.mp4" 
                 className="demo-video" 
                 controls 
                 preload="metadata"
@@ -344,7 +344,7 @@ function App() {
         <div className="platform-demo-container">
           <div className="demo-placeholder">
             <video 
-              src="/demo_final_downscaled.mp4" 
+              src="/final_demo.mp4" 
               className="platform-demo-video" 
               controls 
               preload="metadata"
