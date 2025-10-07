@@ -207,14 +207,64 @@ function App() {
           </div>
           <div className="ultra-hero-visual">
             <div className="ultra-hero-image">
-              <video 
-                src="/Hortus_logo_dynamic.mp4" 
-                className="hero-logo-video" 
-                autoPlay 
-                loop 
-                muted 
-                playsInline
-              />
+              {theme === 'light' ? (
+                <img 
+                  src="/lightmode_logo_nobg.png" 
+                  className="hero-logo-image" 
+                  alt="Hortus Logo"
+                />
+              ) : (
+                <video 
+                  src="/Hortus_logo_dynamic.mp4" 
+                  className="hero-logo-video" 
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline
+                />
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Partners Section */}
+      <section className="partners">
+        <div className="partners-container">
+          <h2 className="partners-title">OUR COLLABORATORS AND PARTNERS</h2>
+          <div className="partners-carousel">
+            <div className="partners-track">
+              <div className="partner-logo">
+                <img src="/vendors/chai.png" alt="CHAI" />
+              </div>
+              <div className="partner-logo">
+                <img src="/vendors/cityofb.png" alt="City of Boston" />
+              </div>
+              <div className="partner-logo">
+                <img src="/vendors/govai.png" alt="GovAI" />
+              </div>
+              <div className="partner-logo">
+                <img src="/vendors/newamerica.png" alt="New America" />
+              </div>
+              <div className="partner-logo">
+                <img src="/vendors/nyas.png" alt="New York Academy of Sciences" />
+              </div>
+              {/* Duplicate for seamless loop */}
+              <div className="partner-logo">
+                <img src="/vendors/chai.png" alt="CHAI" />
+              </div>
+              <div className="partner-logo">
+                <img src="/vendors/cityofb.png" alt="City of Boston" />
+              </div>
+              <div className="partner-logo">
+                <img src="/vendors/govai.png" alt="GovAI" />
+              </div>
+              <div className="partner-logo">
+                <img src="/vendors/newamerica.png" alt="New America" />
+              </div>
+              <div className="partner-logo">
+                <img src="/vendors/nyas.png" alt="New York Academy of Sciences" />
+              </div>
             </div>
           </div>
         </div>
