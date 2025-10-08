@@ -648,7 +648,7 @@ function App() {
             </div>
           </div>
           <div className="footer-cta">
-            <button className="footer-cta-button">
+            <button className="footer-cta-button" onClick={() => setCurrentPage('platform')}>
               <span className="cta-text">Explore Our Platform</span>
               <span className="cta-arrow">→</span>
             </button>
