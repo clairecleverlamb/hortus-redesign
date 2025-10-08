@@ -648,10 +648,10 @@ function App() {
             </div>
           </div>
           <div className="footer-cta">
-            <a href="https://trellis.hortus.ai" target="_blank" rel="noopener noreferrer" className="footer-cta-button">
+            <button className="footer-cta-button">
               <span className="cta-text">Explore Our Platform</span>
               <span className="cta-arrow">→</span>
-            </a>
+            </button>
           </div>
         </div>
       </footer>
