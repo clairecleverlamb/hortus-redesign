@@ -39,6 +39,11 @@ function App() {
     setTheme(newTheme);
   };
 
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    window.scrollTo(0, 0); // Scroll to top when changing pages
+  };
+
   // News items data
   const newsItems = [
     {
@@ -199,7 +204,7 @@ function App() {
             </p>
             </div>
             <div className="ultra-hero-buttons">
-              <button onClick={() => setCurrentPage('platform')} className="ultra-demo-btn">
+              <button onClick={() => handlePageChange('platform')} className="ultra-demo-btn">
                 <span className="play-icon">▶</span>
                 Learn More
               </button>
@@ -472,9 +477,9 @@ function App() {
             </div>
             
             <div className="whitepaper-download-section">
-              <a href="https://hortus.ai/wp-content/uploads/2025/02/HORTUS-WHITEPAPER.pdf" target="_blank" rel="noopener noreferrer" className="download-button-main">
+              <a href="https://drive.google.com/file/d/1DpcyFf4nDg-z4JXgFcZjXT9-Ukfp7JZB/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="download-button-main">
                 <span className="download-icon">📄</span>
-                Download here
+                Read Whitepaper
               </a>
             </div>
           </div>
@@ -586,16 +591,16 @@ function App() {
       {/* Navigation */}
       <nav className="navbar">
         <div className="nav-container">
-          <div className="nav-logo" onClick={() => setCurrentPage('home')}>
+          <div className="nav-logo" onClick={() => handlePageChange('home')}>
             <img src="/favicon.ico" alt="Hortus" className="company-logo" />
             <span className="logo-text">Hortus AI</span>
           </div>
           <div className="nav-right">
             <div className="nav-links">
-              <button onClick={() => setCurrentPage('home')} className={`nav-button ${currentPage === 'home' ? 'active' : ''}`}>Home</button>
-              <button onClick={() => setCurrentPage('news')} className={`nav-button ${currentPage === 'news' ? 'active' : ''}`}>News</button>
-              <button onClick={() => setCurrentPage('whitepaper')} className={`nav-button ${currentPage === 'whitepaper' ? 'active' : ''}`}>Whitepaper</button>
-              <button onClick={() => setCurrentPage('platform')} className={`nav-button ${currentPage === 'platform' ? 'active' : ''}`}>Platform</button>
+              <button onClick={() => handlePageChange('home')} className={`nav-button ${currentPage === 'home' ? 'active' : ''}`}>Home</button>
+              <button onClick={() => handlePageChange('news')} className={`nav-button ${currentPage === 'news' ? 'active' : ''}`}>News</button>
+              <button onClick={() => handlePageChange('whitepaper')} className={`nav-button ${currentPage === 'whitepaper' ? 'active' : ''}`}>Whitepaper</button>
+              <button onClick={() => handlePageChange('platform')} className={`nav-button ${currentPage === 'platform' ? 'active' : ''}`}>Platform</button>
             </div>
             
             {/* Theme Switcher */}
@@ -648,7 +653,7 @@ function App() {
             </div>
           </div>
           <div className="footer-cta">
-            <button className="footer-cta-button" onClick={() => setCurrentPage('platform')}>
+            <button className="footer-cta-button" onClick={() => handlePageChange('platform')}>
               <span className="cta-text">Explore Our Platform</span>
               <span className="cta-arrow">→</span>
             </button>
