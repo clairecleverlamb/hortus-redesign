@@ -653,10 +653,15 @@ function App() {
             </div>
           </div>
           <div className="footer-cta">
-            <button className="footer-cta-button" onClick={() => handlePageChange('platform')}>
+            <a 
+              href="https://docs.google.com/forms/d/1ighCw4LLahw5Ac7KEB80gNt4b-SAinKniIRhjGbap2E/edit" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="footer-cta-button"
+            >
               <span className="cta-text">Explore Our Platform</span>
               <span className="cta-arrow">→</span>
-            </button>
+            </a>
           </div>
         </div>
       </footer>
