@@ -659,7 +659,7 @@ function App() {
               rel="noopener noreferrer"
               className="footer-cta-button"
             >
-              <span className="cta-text">Explore Our Platform</span>
+              <span className="cta-text">Sign Up for Platform Access</span>
               <span className="cta-arrow">→</span>
             </a>
           </div>
