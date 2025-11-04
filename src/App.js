@@ -44,6 +44,31 @@ function App() {
     window.scrollTo(0, 0); // Scroll to top when changing pages
   };
 
+  // Helper function to check if a date has passed
+  const isDatePassed = (dateString, title) => {
+    // Extract year from title if available (e.g., "EAAMO 2025")
+    const yearMatch = title.match(/\b(20\d{2})\b/);
+    const year = yearMatch ? parseInt(yearMatch[1]) : new Date().getFullYear();
+    
+    // Parse date string (e.g., "Friday October 11th")
+    const monthNames = ["january", "february", "march", "april", "may", "june", 
+                       "july", "august", "september", "october", "november", "december"];
+    const dateParts = dateString.toLowerCase().split(' ');
+    const monthName = dateParts.find(part => monthNames.includes(part));
+    const dayMatch = dateParts.find(part => /\d+/.test(part));
+    
+    if (!monthName || !dayMatch) return false;
+    
+    const month = monthNames.indexOf(monthName);
+    const day = parseInt(dayMatch.match(/\d+/)[0]);
+    
+    const eventDate = new Date(year, month, day);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    
+    return eventDate < today;
+  };
+
   // News items data
   const newsItems = [
     {
@@ -379,22 +404,28 @@ function App() {
         <div className="news-container">
           <div className="timeline-line"></div>
           
-          {newsItems.slice(0, visibleNewsItems).map((item, index) => (
+          {newsItems.slice().reverse().slice(0, visibleNewsItems).map((item, index) => {
+            const datePassed = isDatePassed(item.date, item.title);
+            const isUpcoming = item.upcoming && !datePassed;
+            
+            return (
             <article key={item.id} className={`news-item ${item.featured ? 'featured' : ''}`}>
               <div className="news-date">
-                <span className={`date-circle ${item.upcoming ? 'upcoming-circle' : ''}`}></span>
+                <span className={`date-circle ${isUpcoming ? 'upcoming-circle' : ''}`}></span>
                 <time>{item.date}</time>
               </div>
               <div className="news-card">
-                {item.badge && (
-                  <div className={`news-badge ${item.upcoming ? 'upcoming' : ''}`}>
+                {item.badge && isUpcoming && (
+                  <div className={`news-badge ${isUpcoming ? 'upcoming' : ''}`}>
                     {item.badge}
                   </div>
                 )}
                 <h2 className="news-title">{item.title}</h2>
                 <p className="news-excerpt">{item.excerpt}</p>
                 <div className="news-meta">
-                  <span className="news-category">{item.category}</span>
+                  <span className="news-category">
+                    {datePassed && item.category === "Upcoming Event" ? "Event" : item.category}
+                  </span>
                   {item.link ? (
                     <a href={item.link} target="_blank" rel="noopener noreferrer" className="news-link">
                       {item.linkText}
@@ -409,7 +440,8 @@ function App() {
                 </div>
               </div>
             </article>
-          ))}
+            );
+          })}
 
           {/* Load More Link */}
           {visibleNewsItems < newsItems.length && (
@@ -419,22 +451,6 @@ function App() {
               </span>
             </div>
           )}
-        </div>
-      </section>
-
-      {/* Newsletter Signup */}
-      <section className="newsletter-section">
-        <div className="newsletter-container">
-          <div className="newsletter-content">
-            <h2 className="newsletter-title">Stay Updated</h2>
-            <p className="newsletter-subtitle">Get the latest Hortus AI news and insights delivered to you</p>
-            <form className="newsletter-form">
-              <div className="newsletter-input-group">
-                <input type="email" placeholder="Enter your email address" className="newsletter-input" required />
-                <button type="submit" className="newsletter-btn">Subscribe</button>
-              </div>
-            </form>
-          </div>
         </div>
       </section>
     </>
@@ -479,7 +495,7 @@ function App() {
             <div className="whitepaper-download-section">
               <a href="https://drive.google.com/file/d/1DpcyFf4nDg-z4JXgFcZjXT9-Ukfp7JZB/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="download-button-main">
                 <span className="download-icon">📄</span>
-                Read Whitepaper
+                Learn about our vision
               </a>
             </div>
           </div>
@@ -520,7 +536,7 @@ function App() {
         <div className="platform-hero-container">
           <h1 className="platform-title">Hortus Trellis</h1>
           <p className="platform-subtitle">
-            Our platform helps businesses, nonprofits, and government teams match AI tools to use cases that matter to their constituencies.
+            Our platform helps procurement teams source the right AI products and services for their needs.
           </p>
         </div>
       </section>
@@ -557,7 +573,7 @@ function App() {
           <div className="detail-section">
             <div className="detail-card">
               <h3>The Problem</h3>
-              <p>The AI boom has flooded the market with tools—many with lofty promises, few that actually work. Businesses, schools, government teams, nonprofits, and everyday users lack a reliable source to cut through the hype and make informed choices.
+              <p>Half a dozen new AI tools are launched every hour. Businesses, government teams, schools, and nonprofits lack the information and means to make informed choices.
               </p>
             </div>
 
@@ -567,16 +583,16 @@ function App() {
                 Hortus Trellis is an independent, rigorous platform evaluating AI products for usability, safety, privacy, and performance. Think Consumer Reports, but for AI—built on ethical audits and real user feedback. Trellis includes:
               </p>
               <ul className="solution-features">
-                <li>Robust information on 500+ AI tools</li>
-                <li>300+ use cases</li>
-                <li>Custom metrics for healthcare, education, transportation, and public safety</li>
+                <li>Robust information on 1500+ AI tools</li>
+                <li>750+ use cases</li>
+                <li>Custom metrics for healthcare, administration, education, transportation, and public safety</li>
               </ul>
             </div>
 
             <div className="detail-card">
               <h3>What's Unprecedented</h3>
               <p>
-              Trellis is the first public interest assessment dashboard designed to cut through the jungle of AI platforms and providers. It has been built directly with Chief Data and Privacy Officers across the country who serve as advisors and testers.
+              Trellis is the first assessment dashboard designed in the public interest to cut through the jungle of AI platforms and providers. It has been built directly with Chief Data and Privacy Officers across the country who serve as advisors and testers.
               </p>
             </div>
           </div>

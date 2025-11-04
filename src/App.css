@@ -1685,7 +1685,6 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid rgba(125, 211, 160, 0.15);
   position: relative;
   overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .news-card::before {
@@ -1701,14 +1700,14 @@ h1, h2, h3, h4, h5, h6 {
   pointer-events: none;
 }
 
-.news-card:hover {
+/* .news-card:hover {
   transform: translateY(-8px) scale(1.02);
   border-color: rgba(125, 211, 160, 0.3);
   box-shadow: 
     0 25px 50px rgba(0, 0, 0, 0.3),
     0 0 0 1px rgba(125, 211, 160, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
-}
+} */
 
 .news-badge {
   display: inline-block;
@@ -3134,7 +3133,6 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 24px;
   padding: 3.5rem;
   border: 1px solid rgba(125, 211, 160, 0.15);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
 }
@@ -3150,18 +3148,17 @@ h1, h2, h3, h4, h5, h6 {
     transparent, 
     rgba(125, 211, 160, 0.1), 
     transparent);
-  transition: left 0.8s ease;
 }
 
-.detail-card:hover::before {
+/* .detail-card:hover::before {
   left: 100%;
-}
+} */
 
-.detail-card:hover {
+/* .detail-card:hover {
   border-color: rgba(125, 211, 160, 0.3);
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
   transform: translateY(-6px) scale(1.01);
-}
+} */
 
 .detail-card h3 {
   font-size: 2rem;
@@ -5456,12 +5453,12 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 12px;
 }
 
-[data-theme="light"] .news-card:hover {
+/* [data-theme="light"] .news-card:hover {
   background: #ffffff;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
   transform: translateY(-2px);
   border-color: rgba(5, 150, 105, 0.3);
-}
+} */
 
 [data-theme="light"] .news-title {
   color: #1e293b !important;
@@ -5748,11 +5745,11 @@ h1, h2, h3, h4, h5, h6 {
   color: #005a4a !important;
 }
 
-[data-theme="light"] .detail-card:hover {
+/* [data-theme="light"] .detail-card:hover {
   background: rgba(255, 255, 255, 1);
   border-color: rgba(5, 150, 105, 0.3);
   box-shadow: 0 20px 50px rgba(0, 63, 51, 0.15);
-}
+} */
 
 [data-theme="light"] .platform-cta {
   background: 
