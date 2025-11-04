@@ -1,5 +1,5 @@
 import './App.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import womanGardenerImg from './woman-gardener.png';
 
 function App() {
@@ -11,6 +11,8 @@ function App() {
   });
   const [hoveredFeature, setHoveredFeature] = useState(null);
   const [visibleNewsItems, setVisibleNewsItems] = useState(3);
+  const previousVisibleCount = useRef(3);
+  const isInitialLoad = useRef(true);
 
   // Apply theme to document
   useEffect(() => {
@@ -73,17 +75,6 @@ function App() {
   const newsItems = [
     {
       id: 1,
-      date: "Monday February 24th",
-      title: "Hortus Launches Its Substack",
-      excerpt: "We're excited to announce the launch of our official Substack publication, where we'll share in-depth insights, research findings, and thought leadership on AI ethics and public-powered artificial intelligence.",
-      category: "Platform Launch",
-      badge: "Latest",
-      featured: true,
-      link: "https://hortusai.substack.com/",
-      linkText: "Read on Substack"
-    },
-    {
-      id: 2,
       date: "Tuesday February 18th",
       title: "Hortus Joins New Responsible AI Partnership",
       excerpt: "We're proud to join a coalition of public-interest organizations advancing transparent evaluation for AI systems.",
@@ -91,7 +82,18 @@ function App() {
       badge: null,
       featured: false,
       link: null,
-      linkText: "Learn more"
+      linkText: null
+    },
+    {
+      id: 2,
+      date: "Monday February 24th",
+      title: "Hortus Launches Its Substack",
+      excerpt: "We're excited to announce the launch of our official Substack publication, where we'll share in-depth insights, research findings, and thought leadership on AI ethics and public-powered artificial intelligence.",
+      category: "Platform Launch",
+      badge: null,
+      featured: false,
+      link: null,
+      linkText: null
     },
     {
       id: 3,
@@ -102,7 +104,7 @@ function App() {
       badge: null,
       featured: false,
       link: null,
-      linkText: "Learn more"
+      linkText: null
     },
     {
       id: 4,
@@ -113,7 +115,7 @@ function App() {
       badge: null,
       featured: false,
       link: null,
-      linkText: "Event recap"
+      linkText: null
     },
     {
       id: 5,
@@ -124,18 +126,18 @@ function App() {
       badge: null,
       featured: false,
       link: null,
-      linkText: "Learn more"
+      linkText: null
     },
     {
       id: 6,
       date: "Tuesday July 8th",
-      title: "Hortus Relocates to Bay Area, California",
-      excerpt: "We've moved our headquarters to the San Francisco Bay Area to be closer to the heart of AI innovation and our growing network of partners.",
+      title: "Hortus sets up shop in Bay Area, California",
+      excerpt: "We've moved our operational headquarters to the San Francisco Bay Area to be closer to the heart of AI innovation and our growing network of partners.",
       category: "Company News",
       badge: null,
       featured: false,
       link: null,
-      linkText: "Read more"
+      linkText: null
     },
     {
       id: 7,
@@ -146,59 +148,64 @@ function App() {
       badge: null,
       featured: false,
       link: null,
-      linkText: "Join beta"
+      linkText: null
     },
     {
       id: 8,
-      date: "Monday September 16th",
+      date: "Monday September 29th",
       title: "Open Beta Now Available",
       excerpt: "Hortus Trellis is now available in open beta! Organizations can access our AI evaluation platform and start making informed decisions about AI tools.",
       category: "Product Launch",
       badge: null,
       featured: false,
-      link: "https://trellis.hortus.ai",
-      linkText: "Try open beta"
+      link: null,
+      linkText: null
     },
     {
       id: 9,
-      date: "Friday October 11th",
+      date: "Wednesday October 15th",
       title: "Presentation at Rethink AI Summit",
       excerpt: "Join us at the Rethink AI Summit where we'll present our latest research on public-interest AI evaluation and the future of responsible AI adoption.",
-      category: "Upcoming Event",
-      badge: "Upcoming",
+      category: "Event",
+      badge: null,
       featured: false,
-      upcoming: true,
+      upcoming: false,
       link: null,
-      linkText: "Event details"
+      linkText: null
     },
     {
       id: 10,
-      date: "Tuesday November 5th",
+      date: "Thursday November 6th",
       title: "GovAI Summit Presentation",
       excerpt: "We'll be presenting at the GovAI Summit, sharing insights on how government agencies can effectively evaluate and implement AI solutions.",
-      category: "Upcoming Event",
-      badge: "Upcoming",
+      category: "Event",
+      badge: null,
       featured: false,
-      upcoming: true,
-      link: null,
+      upcoming: false,
+      link: "https://events.govtech.com/GovAI-Coalition-Summit",
       linkText: "Learn more"
-    },
-    {
-      id: 11,
-      date: "Friday November 22nd",
-      title: "EAAMO 2025 Conference",
-      excerpt: "Hortus will present at EAAMO 2025 (Equity and Access in Algorithms, Mechanisms, and Optimization), discussing algorithmic fairness in AI evaluation.",
-      category: "Upcoming Event",
-      badge: "Upcoming",
-      featured: false,
-      upcoming: true,
-      link: null,
-      linkText: "Conference info"
     }
   ];
 
   const loadMoreNews = () => {
+    const previousCount = visibleNewsItems;
+    previousVisibleCount.current = previousCount; // Update ref before state change
+    isInitialLoad.current = false; // Mark that we're no longer on initial load
     setVisibleNewsItems(prev => Math.min(prev + 3, newsItems.length));
+    
+    // Smooth scroll to newly loaded content after a brief delay
+    setTimeout(() => {
+      const newsContainer = document.querySelector('.news-container');
+      if (newsContainer) {
+        const newsItemsElements = newsContainer.querySelectorAll('.news-item');
+        if (newsItemsElements[previousCount]) {
+          newsItemsElements[previousCount].scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+          });
+        }
+      }
+    }, 100);
   };
 
   const renderPage = () => {
@@ -406,18 +413,20 @@ function App() {
           
           {newsItems.slice().reverse().slice(0, visibleNewsItems).map((item, index) => {
             const datePassed = isDatePassed(item.date, item.title);
-            const isUpcoming = item.upcoming && !datePassed;
+            const isUpcoming = !datePassed && (item.category === "Event" || item.category === "Upcoming Event");
+            // Only animate items that are newly loaded (not on initial page load)
+            const isNewlyLoaded = !isInitialLoad.current && index >= previousVisibleCount.current;
             
             return (
-            <article key={item.id} className={`news-item ${item.featured ? 'featured' : ''}`}>
+            <article key={item.id} className={`news-item ${item.featured ? 'featured' : ''} ${index % 2 === 1 ? 'news-item-right' : ''} ${isNewlyLoaded ? 'news-item-new' : ''}`}>
               <div className="news-date">
                 <span className={`date-circle ${isUpcoming ? 'upcoming-circle' : ''}`}></span>
                 <time>{item.date}</time>
               </div>
               <div className="news-card">
-                {item.badge && isUpcoming && (
-                  <div className={`news-badge ${isUpcoming ? 'upcoming' : ''}`}>
-                    {item.badge}
+                {isUpcoming && (
+                  <div className="news-badge upcoming">
+                    Upcoming
                   </div>
                 )}
                 <h2 className="news-title">{item.title}</h2>
@@ -426,17 +435,12 @@ function App() {
                   <span className="news-category">
                     {datePassed && item.category === "Upcoming Event" ? "Event" : item.category}
                   </span>
-                  {item.link ? (
+                  {item.link && item.linkText ? (
                     <a href={item.link} target="_blank" rel="noopener noreferrer" className="news-link">
                       {item.linkText}
                       <span className="link-arrow">→</span>
                     </a>
-                  ) : (
-                    <button className="news-link" onClick={() => console.log(`${item.title} details`)}>
-                      {item.linkText}
-                      <span className="link-arrow">→</span>
-                    </button>
-                  )}
+                  ) : null}
                 </div>
               </div>
             </article>
