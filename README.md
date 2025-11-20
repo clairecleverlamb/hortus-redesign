@@ -63,13 +63,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+### `npm run build` 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# Updated Tue Oct  7 15:40:35 PDT 2025
-# Force GitHub Actions refresh Wed Oct  8 11:43:22 PDT 2025
-# Deploy fix Wed Oct  8 11:46:14 PDT 2025
-# Deployment test with clairecleverlamb author Wed Oct  8 12:26:33 PDT 2025
-# Update for production deployment Wed Oct  8 12:46:39 PDT 2025
-# Test deployment with claire@hortus.ai permissions Wed Oct  8 13:02:31 PDT 2025
-# Deploy with verified GitHub account Wed Oct  8 13:04:26 PDT 2025
